@@ -26,7 +26,7 @@ namespace StolMVC.Controllers
                 return View("Index", user);
             }
 
-            return View("Submit", user); // Заменили "Privacy" на "Submit"
+            return View("Submit", user);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -54,7 +54,7 @@
 
 
 <div class="registration-form">
-@using (Html.BeginForm("Submit", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Submit", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
 
@@ -106,6 +106,12 @@
         @Html.TextBoxFor(m => m.SecretWordAnswer)
         @Html.ValidationMessageFor(m => m.SecretWordAnswer)
     </div>
+
+        <div>
+            @Html.LabelFor(m => m.ProfileImage, "Фотография:")
+            <input type="file" name="ProfileImage" accept="image/*" />
+            @Html.ValidationMessageFor(m => m.ProfileImage)
+        </div>
 
     <button type="submit">Отправить</button>
 }

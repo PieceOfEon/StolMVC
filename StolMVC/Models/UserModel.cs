@@ -35,5 +35,9 @@ namespace StolMVC.Models
         [Required(ErrorMessage = "Поле 'Ответ на секретное слово' обязательно для заполнения")]
         [Display(Name = "Ответ на секретное слово")]
         public string SecretWordAnswer { get; set; }
+
+        [Display(Name = "Фотография")]
+        public IFormFile ProfileImage { get; set; } // Новое свойство для изображения
+
     }
 }

@@ -54,5 +54,27 @@
         <td>Ответ на секретное слово:</td>
         <td>@Model.SecretWordAnswer</td>
     </tr>
+        <tr>
+            <td>Фотография:</td>
+            <td>
+                @if (Model.ProfileImage != null)
+                {
+                    <img src="data:@Model.ProfileImage.ContentType;base64,@{
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            Model.ProfileImage.CopyTo(memoryStream);
+                            var bytes = memoryStream.ToArray();
+                            var base64String = Convert.ToBase64String(bytes);
+                                @base64String
+                        }
+                    }" alt="Изображение профиля" />
+                }
+                else
+                {
+                    <p>Изображение не выбрано</p>
+                }
+            </td>
+        </tr>
+
 </table>
 </div>
