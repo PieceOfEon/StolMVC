@@ -37,7 +37,7 @@ namespace StolMVC.Models
         public string SecretWordAnswer { get; set; }
 
         [Display(Name = "Фотография")]
-        public IFormFile ProfileImage { get; set; } // Новое свойство для изображения
+        public IFormFile ProfileImage { get; set; } 
 
     }
 }
