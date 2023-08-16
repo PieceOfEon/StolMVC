@@ -1,0 +1,112 @@
+﻿@model StolMVC.Models.UserModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+<style>
+   
+    .registration-form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: orange;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        
+        .registration-form button {
+            background-color: black;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        
+        .registration-form input[type="text"],
+        .registration-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        
+        .registration-form input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        
+        .registration-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+</style>
+
+
+<div class="registration-form">
+@using (Html.BeginForm("Submit", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <div>
+        @Html.LabelFor(m => m.FullName, "ФИО:")
+        @Html.TextBoxFor(m => m.FullName)
+        @Html.ValidationMessageFor(m => m.FullName)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Age, "Возраст:")
+        @Html.TextBoxFor(m => m.Age)
+        @Html.ValidationMessageFor(m => m.Age)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.BirthDate, "Дата рождения:")
+        @Html.TextBoxFor(m => m.BirthDate, new { type = "date" })
+        @Html.ValidationMessageFor(m => m.BirthDate)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Password, "Пароль:")
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.ConfirmPassword, "Подтвердите пароль:")
+        @Html.PasswordFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Gender, "Пол:")
+        @Html.RadioButtonFor(m => m.Gender, "Мужской") Мужской
+        @Html.RadioButtonFor(m => m.Gender, "Женский") Женский
+        @Html.ValidationMessageFor(m => m.Gender)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.SecretWord, "Секретное слово:")
+        @Html.DropDownListFor(m => m.SecretWord, new SelectList(new string[] { "Имя собаки", "Любимое число", "Любимая еда" }))
+        @Html.ValidationMessageFor(m => m.SecretWord)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.SecretWordAnswer, "Ответ на секретное слово:")
+        @Html.TextBoxFor(m => m.SecretWordAnswer)
+        @Html.ValidationMessageFor(m => m.SecretWordAnswer)
+    </div>
+
+    <button type="submit">Отправить</button>
+}
+</div>

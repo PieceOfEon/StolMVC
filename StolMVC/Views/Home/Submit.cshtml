@@ -1,0 +1,58 @@
+﻿@model StolMVC.Models.UserModel
+
+@{
+    ViewBag.Title = "Информация о пользователе";
+}
+<style>
+    
+    .user-info-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: orange;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        
+        .user-info-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        
+        .user-info-container td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+</style>
+<div class="user-info-container">
+<table>
+    <tr>
+        <td>ФИО:</td>
+        <td>@Model.FullName</td>
+    </tr>
+    <tr>
+        <td>Возраст:</td>
+        <td>@Model.Age</td>
+    </tr>
+    <tr>
+        <td>Дата рождения:</td>
+        <td>@Model.BirthDate.ToShortDateString()</td>
+    </tr>
+    <tr>
+        <td>Пол:</td>
+        <td>@Model.Gender</td>
+    </tr>
+    <tr>
+        <td>Секретное слово:</td>
+        <td>@Model.SecretWord</td>
+    </tr>
+    <tr>
+        <td>Ответ на секретное слово:</td>
+        <td>@Model.SecretWordAnswer</td>
+    </tr>
+</table>
+</div>
